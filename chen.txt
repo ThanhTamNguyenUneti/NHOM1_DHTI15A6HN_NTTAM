@@ -1,0 +1,48 @@
+USE [QLSDT]
+GO
+-- Thêm dữ liệu vào bảng User
+INSERT [dbo].[User] ([User], [Password]) VALUES (N'tam', N'1')
+INSERT [dbo].[User] ([User], [Password]) VALUES (N'hien', N'1')
+
+-- Thêm dữ liệu vào bảng KhachHang
+INSERT [dbo].[KhachHang] ([TenKhachHang], [Email], [DienThoai], [DiaChi]) VALUES (N'Nguyễn Văn A', N'nguyenvana@example.com', N'0123456789', N'123 Đường ABC, Hà Nội')
+INSERT [dbo].[KhachHang] ([TenKhachHang], [Email], [DienThoai], [DiaChi]) VALUES (N'Lê Van C', N'levanc@example.com', N'0912345678', N'789 Phố Nguyễn Huệ, Hà Nội')
+INSERT [dbo].[KhachHang] ([TenKhachHang], [Email], [DienThoai], [DiaChi]) VALUES (N'Nguyễn Thành Tâm', N'nguyenthanhtam@gmail.com', N'0363602606', N'Lĩnh Nam, Hoàng Mai, Hà Nội')
+INSERT [dbo].[KhachHang] ([TenKhachHang], [Email], [DienThoai], [DiaChi]) VALUES (N'Nguyễn Lê Thế Hiển', N'nguyenlethehien@gmail.com', N'0363602606', N'Không rõ')
+
+-- Thêm dữ liệu vào bảng TacGia
+INSERT [dbo].[TacGia] ([TenTacGia], [TieuSu], [NamSinh]) VALUES (N'Nguyễn Nhật Ánh', N'Ông là 1 nhà văn nổi tiếng với các câu chuyện trữ tình', 1989)
+INSERT [dbo].[TacGia] ([TenTacGia], [TieuSu], [NamSinh]) VALUES (N'Haruki Murakami', N'Ông là 1 nhà văn Nhật Bản', 1989)
+INSERT [dbo].[TacGia] ([TenTacGia], [TieuSu], [NamSinh]) VALUES (N'J.K. Rowling', N'Tác giả của series Harry Potter.', 1989)
+INSERT [dbo].[TacGia] ([TenTacGia], [TieuSu], [NamSinh]) VALUES (N'Nam Cao', N'Ông sinh ra và lớn lên tại Hà Nam', 1915)
+INSERT [dbo].[TacGia] ([TenTacGia], [TieuSu], [NamSinh]) VALUES (N'Xuân Diệu', N'Ông sinh ra và lớn lên ở Ti Phước', 1932)
+INSERT [dbo].[TacGia] ([TenTacGia], [TieuSu], [NamSinh]) VALUES (N'Kim Lân', N'Kim Lân sinh ra và lớn lên ở mảnh đất Nghệ An', 1942)
+
+-- Thêm dữ liệu vào bảng TheLoai
+INSERT [dbo].[TheLoai] ([TenTheLoai], [MoTa]) VALUES (N'Tiểu Thuyết', N'Truyện từ các tác giả cũ')
+INSERT [dbo].[TheLoai] ([TenTheLoai], [MoTa]) VALUES (N'KHVT', N'Hay')
+INSERT [dbo].[TheLoai] ([TenTheLoai], [MoTa]) VALUES (N'Tâm lý', N'Phim tâm lý nè hihi')
+INSERT [dbo].[TheLoai] ([TenTheLoai], [MoTa]) VALUES (N'Trinh thám', N'Trinh thám các kiểu đồ')
+INSERT [dbo].[TheLoai] ([TenTheLoai], [MoTa]) VALUES (N'Khoa học', N'Phim khoa học về trí tuệ nhân tạo')
+
+-- Thêm dữ liệu vào bảng Sach
+INSERT [dbo].[Sach] ([TenSach], [MaTacGia], [MaTheLoai], [Gia], [MoTa], [NamXB]) VALUES (N'Khi dêm xuống', 1, 1, CAST(150000.00 AS Decimal(10, 2)), N'Một câu chuyện tình bạn', CAST(N'2003-12-11' AS Date))
+INSERT [dbo].[Sach] ([TenSach], [MaTacGia], [MaTheLoai], [Gia], [MoTa], [NamXB]) VALUES (N'1Q84', 2, 2, CAST(300000.00 AS Decimal(10, 2)), N'Tiểu thuyết song song', CAST(N'2003-12-29' AS Date))
+INSERT [dbo].[Sach] ([TenSach], [MaTacGia], [MaTheLoai], [Gia], [MoTa], [NamXB]) VALUES (N'Harry Potter và hòn đá phù thủy', 3, 3, CAST(250000.00 AS Decimal(10, 2)), N'Câu chuyện của Harry Potter', CAST(N'2023-12-16' AS Date))
+INSERT [dbo].[Sach] ([TenSach], [MaTacGia], [MaTheLoai], [Gia], [MoTa], [NamXB]) VALUES (N'Đắc Nhân Tâm', 1, 1, CAST(360000.00 AS Decimal(10, 2)), N'Cách ứng xử', CAST(N'2004-12-20' AS Date))
+INSERT [dbo].[Sach] ([TenSach], [MaTacGia], [MaTheLoai], [Gia], [MoTa], [NamXB]) VALUES (N'Lập trình C#', 1, 1, CAST(16000.00 AS Decimal(10, 2)), N'SÁCH ĐẸP', CAST(N'2022-01-14' AS Date))
+
+-- Thêm dữ liệu vào bảng DonHang
+INSERT [dbo].[DonHang] ([MaKhachHang], [NgayDat], [TongTien], [TrangThai], [KhuyenMai]) VALUES (1, GETDATE(), CAST(150000.00 AS Decimal(10, 2)), N'Hoàn thành', NULL)
+INSERT [dbo].[DonHang] ([MaKhachHang], [NgayDat], [TongTien], [TrangThai], [KhuyenMai]) VALUES (2, GETDATE(), CAST(290000.00 AS Decimal(10, 2)), N'Đang xử lý', CAST(0.39 AS Decimal(3, 2)))
+INSERT [dbo].[DonHang] ([MaKhachHang], [NgayDat], [TongTien], [TrangThai], [KhuyenMai]) VALUES (1, GETDATE(), CAST(250000.00 AS Decimal(10, 2)), N'Hoàn thành', NULL)
+INSERT [dbo].[DonHang] ([MaKhachHang], [NgayDat], [TongTien], [TrangThai], [KhuyenMai]) VALUES (1, GETDATE(), CAST(140000.00 AS Decimal(10, 2)), N'Hoàn thành', CAST(0.36 AS Decimal(3, 2)))
+INSERT [dbo].[DonHang] ([MaKhachHang], [NgayDat], [TongTien], [TrangThai], [KhuyenMai]) VALUES (4, GETDATE(), CAST(5000.00 AS Decimal(10, 2)), N'Đang xử lý', CAST(0.30 AS Decimal(3, 2)))
+INSERT [dbo].[DonHang] ([MaKhachHang], [NgayDat], [TongTien], [TrangThai], [KhuyenMai]) VALUES (4, GETDATE(), CAST(516533.76 AS Decimal(10, 2)), N'Đang xử lý', CAST(0.36 AS Decimal(3, 2)))
+
+-- Thêm dữ liệu vào bảng ChiTietDonHang
+INSERT [dbo].[ChiTietDonHang] ([MaDonHang], [MaSach], [SoLuong], [Gia]) VALUES (1, 1, 1, CAST(150000.00 AS Decimal(10, 2)))
+INSERT [dbo].[ChiTietDonHang] ([MaDonHang], [MaSach], [SoLuong], [Gia]) VALUES (2, 2, 1, CAST(300000.00 AS Decimal(10, 2)))
+INSERT [dbo].[ChiTietDonHang] ([MaDonHang], [MaSach], [SoLuong], [Gia]) VALUES (3, 3, 1, CAST(250000.00 AS Decimal(10, 2)))
+INSERT [dbo].[ChiTietDonHang] ([MaDonHang], [MaSach], [SoLuong], [Gia]) VALUES (4, 2, 26, CAST(3600.00 AS Decimal(10, 2)))
+INSERT [dbo].[ChiTietDonHang] ([MaDonHang], [MaSach], [SoLuong], [Gia]) VALUES (5, 5, 32, CAST(16200.00 AS Decimal(10, 2)))
